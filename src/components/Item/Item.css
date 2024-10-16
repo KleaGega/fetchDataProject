@@ -1,0 +1,39 @@
+.item {
+  display: flex;
+  justify-content: space-between; 
+  align-items: center; 
+  padding: 10px; 
+  margin: 10px 0; 
+  background-color: #fff;
+  border: 1px solid #ddd; 
+  border-radius: 5px; 
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+}
+.container-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px;
+  background-color: white;
+  box-shadow:0 1px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 7px;
+}
+.btn {
+  display: flex;
+  justify-content: end;
+  gap: 10px;
+}
+.delete-btn {
+  color: #e74c3c; 
+  cursor: pointer; 
+  transition: color 0.3s ease;
+}
+
+.delete-btn:hover {
+  color: #c0392b;
+}
+.font-item {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
