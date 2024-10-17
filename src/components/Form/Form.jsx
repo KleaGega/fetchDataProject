@@ -1,6 +1,8 @@
 import React from "react";
 import './Form.css'
-function Form({ addTask, isEditing, editValue, editDescription, setEditValue, setEditDescription, updateTodo, isCompleted, setIsCompleted }) {
+import { memo } from "react";
+import PropTypes from 'prop-types';
+const Form = memo (function Form({ addTask, isEditing, editValue, editDescription, setEditValue, setEditDescription, updateTodo, isCompleted, setIsCompleted }){
   const handleSubmit = (e) => {
     e.preventDefault();
     if (isEditing) {
@@ -8,7 +10,6 @@ function Form({ addTask, isEditing, editValue, editDescription, setEditValue, se
     } else {
       addTask(editValue, editDescription); 
     }
-
     setEditValue('');
     setEditDescription('');
   };
@@ -49,12 +50,20 @@ function Form({ addTask, isEditing, editValue, editDescription, setEditValue, se
           />
         </label>
         </div>
-      )}
-      
+      )} 
     </form>
-    
-    
   );
-}
+});
+Form.propTypes = {
+  addTask: PropTypes.func.isRequired,
+  isEditing: PropTypes.bool.isRequired,
+  editValue: PropTypes.string.isRequired,
+  editDescription: PropTypes.string.isRequired,
+  setEditValue: PropTypes.func.isRequired,
+  setEditDescription: PropTypes.func.isRequired,
+  updateTodo: PropTypes.func.isRequired,
+  isCompleted: PropTypes.bool.isRequired,
+  setIsCompleted: PropTypes.func.isRequired,
+};
 
 export default Form;

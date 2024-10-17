@@ -1,22 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import Form from '../Form/Form';
 import List from '../List/List';
+import {useMemo} from 'react'
 import './ToDoList.css'
+import UseFetch from '../ToDo/UseFetch';
 const apiUrl = 'http://localhost:8080/todos';
 
-function ToDoList() {
-  const [todos, setTodos] = useState([]);
+ export default function ToDoList() {
+  const { todos,  error, setTodos } = UseFetch(apiUrl);
   const [isEditing, setIsEditing] = useState(false);
   const [editIndex, setEditIndex] = useState(null);
   const [editValue, setEditValue] = useState('');
   const [editDescription, setEditDescription] = useState('');
   const [currentTodoId, setCurrentTodoId] = useState(null);
   const [isCompleted, setIsCompleted] = useState(false);
-
-  useEffect(() => {
-    fetchTodos();
-  }, []);
-
 
   const fetchTodoById = async (id) => {
     try {
@@ -27,17 +24,6 @@ function ToDoList() {
       console.error('Error fetching todo by ID:', err);
     }
   };
-
-  const fetchTodos = async () => {
-    try {
-      const response = await fetch(apiUrl);
-      const data = await response.json();
-      setTodos(data);
-    } catch (err) {
-      console.error('Error fetching todos:', err);
-    }
-  };
-
   const addTask = async (title, description) => {
     try {
       const response = await fetch(apiUrl, {
@@ -91,13 +77,12 @@ function ToDoList() {
       console.error('Error updating todo:', err);
     }
   };
-
-  const completedCount = todos.filter(todo => todo.completed).length;
-  const uncompletedCount = todos.length - completedCount;
+  const completedCount = useMemo(() => todos.filter(todo => todo.completed).length, [todos]);
+  const uncompletedCount = useMemo(() => todos.length - completedCount, [todos, completedCount]);
 
   return (
     <div className='container'>
-      <h1>My To-Do List</h1>
+      <h1>My To Do List</h1>
       <Form
         addTask={addTask}
         isEditing={isEditing}
@@ -118,4 +103,3 @@ function ToDoList() {
   );
 }
 
-export default ToDoList;

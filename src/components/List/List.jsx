@@ -1,14 +1,15 @@
 import React from 'react';
-import TodoItem from '../Item/ToDoItem'
-import './List.css'
-function List({ todos, deleteTodo, editTodo }) {
+import './List.css';  
+import Item from '../Item/Item';  
+import PropTypes from 'prop-types';
+export default function List({ todos, deleteTodo, editTodo }) {
   return (
     <div className='my-list'>
       {todos.length === 0 ? (
         <p>No todos available.</p>
       ) : (
         todos.map(todo => (
-          <TodoItem
+          <Item
             key={todo.id}
             todo={todo}
             deleteTodo={deleteTodo}
@@ -19,5 +20,8 @@ function List({ todos, deleteTodo, editTodo }) {
     </div>
   );
 }
-
-export default List;
+List.propTypes = {
+  todos: PropTypes.array.isRequired,
+  deleteTodo: PropTypes.func.isRequired,
+  editTodo: PropTypes.func.isRequired,
+};

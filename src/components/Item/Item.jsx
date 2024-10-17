@@ -1,9 +1,9 @@
-import React from "react";
-import './Item.css';
+import React, { memo } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'; 
 import { faTrash, faEdit } from '@fortawesome/free-solid-svg-icons'; 
+import './Item.css';  
 
-function TodoItem({ todo, deleteTodo, editTodo }) {
+const Item = memo(function Item({ todo, deleteTodo, editTodo }) {
   return (
     <div className="container-item">
       <div className="title-description">
@@ -27,6 +27,7 @@ function TodoItem({ todo, deleteTodo, editTodo }) {
       </div>
     </div>
   );
-}
+});
 
-export default TodoItem;
+export default Item;
+

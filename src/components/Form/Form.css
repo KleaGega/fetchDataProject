@@ -1,92 +1,83 @@
 body {
-  background-color: beige;
+  background: linear-gradient(to right, #3a3d5e, #1e2433); 
   font-family: Arial, sans-serif;
   display: block;
   justify-content: center;
   height: 100vh;
-  margin-top: 70px;
- 
+  margin-top: 40px;
 }
 
-.input-check {
-  height: 16px;
-}
 h1 {
   text-align: center;
-  color: #4b3c26;
-  margin-bottom: 20px; 
+  color: black;
+  margin-bottom: 20px;
+  font-size: 40px;
+  padding: 15px;
+  background-color: darkgray;
 }
-.input-textarea {
-  display: block;
-}
-.input-text-btn {
-  display: flex;
-  align-items: center;
-}
-
 
 form {
   display: block;
   justify-content: center;
   gap: 10px;
   align-items: center;
+}
+.input-text-btn {
+  display: flex;
+  align-items: center;
+}
 
- }
 textarea {
   margin-top: 18px;
   width: 90%;
   height: auto;
   resize: none;
-  padding: 10px; 
-  font-size: 16px; 
-  border: 2px solid #d5b89b; 
-  border-radius: 5px; 
-  color: #4b3c26;
-  background-color: #f9f5eb; 
-  transition: border-color 0.3s ease, box-shadow 0.3s ease; 
+  padding: 10px;
+  font-size: 16px;
+  border: 2px solid #6c6f84; 
+  border-radius: 5px;
+  color: #000; 
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 input.task {
   width: 90%;
   height: 27px;
-  padding: 10px; 
-  font-size: 16px; 
-  border: 2px solid #d5b89b; 
-  border-radius: 5px; 
-  color: #4b3c26;
-  background-color: #f9f5eb; 
-  transition: border-color 0.3s ease, box-shadow 0.3s ease; 
+  padding: 10px;
+  font-size: 16px;
+  border: 2px solid #6c6f84; 
+  border-radius: 5px;
+  color: #000; 
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 input:hover {
-  border-color: #c1a58a; 
+  border-color: #7db3b3; 
 }
 
 input:focus {
-  outline: none; 
-  border-color: #a89f8e; 
-  box-shadow: 0 0 5px rgba(184, 132, 93, 0.5); 
+  outline: none;
+  border-color: #f4a261; 
+  box-shadow: 0 0 5px rgba(244, 162, 97, 0.5); 
 }
 
 button {
-  height: 50px; 
-  padding: 0 20px; 
-  font-size: 16px;
-  color: #fff; 
-  background-color: #c2b280;
-  border: none; 
-  border-radius: 5px;
+  height: 50px;
+  padding: 0 20px;
+  font-size: 18px;
+  border: none;
+  background-color: #1e2433;
+  border-radius: 8px;
   cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease; 
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  color: white;
 }
-
 
 button:hover {
-  background-color: #a89f8e; 
-  transform: scale(1.05); 
+  background-color: #3a3d5e; 
+  transform: scale(1.05);
 }
-
-
 button:focus {
-  outline: none; 
+  outline: none;
+  border-color: #f4a261;
 }
