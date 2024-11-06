@@ -4,6 +4,7 @@ import { faTrash, faEdit } from '@fortawesome/free-solid-svg-icons';
 import './Item.css';  
 
 const Item = memo(function Item({ todo, deleteTodo, editTodo }) {
+    console.log('render')
   return (
     <div className="container-item">
       <div className="title-description">
