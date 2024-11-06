@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSort } from "@fortawesome/free-solid-svg-icons";
 import useFetch from "./useFetch";
 import Table from "./Table";
+import Pagination from "./Pagination";
 
 function Project() {
   const [languageFilter, setLanguageFilter] = useState("");
@@ -45,14 +46,6 @@ function Project() {
 
     setSortDirection(newSortDirection);
     setFilteredData(sortedData);
-  };
-
-  const decrement = () => {
-    if (currentPage > 1) setCurrentPage(currentPage - 1);
-  };
-
-  const increment = () => {
-    if (currentPage < totalPages) setCurrentPage(currentPage + 1);
   };
 
   const indexOfLastPost = currentPage * postsPerPage;
@@ -118,12 +111,11 @@ function Project() {
       ) : (
         <Table currentPosts={currentPosts} />
       )}
-      <button disabled={currentPage === 1 ? true : false} onClick={decrement}>
-        PREVIOUS
-      </button>
-      <button disabled={currentPage === totalPages ? true : false} onClick={increment}>
-        NEXT
-      </button>
+      <Pagination 
+        currentPage={currentPage}
+        setCurrentPage={setCurrentPage}
+        totalPages={totalPages}
+      />
     </div>
   );
 }
